@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Spam Detection
-        uses: Sambhaji-Patil/hide-spam-comments@main
+        uses: Sambhaji-Patil/hide-spam-comments@v1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_owner: ${{ github.repository_owner }}
