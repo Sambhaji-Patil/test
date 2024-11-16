@@ -1,21 +1,26 @@
-name: Run Spam Detection
+name: Spam Detection
+
 on:
-  issues:
-    types: [opened, edited]
-  pull_request:
-    types: [opened, edited]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
   discussion_comment:
-    types: [created, edited]
+    types: [created]
+
+permissions:
+  issues: write
+  pull-requests: write
+  discussions: write
+  contents: read
 
 jobs:
-  run_spam_detection:
+  detect-spam:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Run AutoHide Spam Comments
-        uses: Sambhaji-Patil/spam-detection-action@v1.6
+    steps:
+      - name: Run Spam Detection
+        uses: Sambhaji-Patil/AntiSpam-Action@v1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_owner: ${{ github.repository_owner }}
