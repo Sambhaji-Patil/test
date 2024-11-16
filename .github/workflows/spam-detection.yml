@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3  # This is important for accessing repository files
+      - name: Check out the repository
+        uses: actions/checkout@v3
 
       - name: Run Spam Detection
         uses: Sambhaji-Patil/hide-spam-comments@v1.0
