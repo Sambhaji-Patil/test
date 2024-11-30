@@ -1,12 +1,9 @@
-name: Spam Detection
 
+name: Spam Detection
 on:
-  issue_comment:
-    types: [created]
-  pull_request_review_comment:
-    types: [created]
-  discussion_comment:
-    types: [created]  
+  schedule:
+    - cron: '0 */3 * * *'  
+  workflow_dispatch: 
 
 jobs:
   detect-spam:
